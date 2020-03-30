@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Employee {
 	
@@ -8,11 +8,13 @@ public class Employee {
 	private float salary;
 	private String position;
 	private int branchID;
+	private String password;
 	
-	public Employee(int employeeID, String fName, String lName) {
+	public Employee(int employeeID, String fName, String lName, String password) {
 		this.employeeID = employeeID;
 		this.fName = fName;
 		this.lName = lName;
+		this.password = password;
 	}
 	
 	public int getEmployeeID() {
@@ -63,5 +65,11 @@ public class Employee {
 		this.branchID = branchID;
 	}
 	
-
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
 }

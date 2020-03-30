@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Host {
 	private int hostID;
@@ -11,12 +11,14 @@ public class Host {
 	private String hostLN;
 	private String emailAddress;
 	private int phoneNum;
+	private String password;
 	
-	public Host(String fName, String mName, String lName, int ID) {
+	public Host(String fName, String mName, String lName, int ID, String password) {
 		this.setHostFN(fName);
 		this.setHostMN(mName);
 		this.setHostLN(lName);
 		this.setHostID(ID);
+		this.password = password;
 	}
 
 	public int getHouseNum() {
@@ -99,5 +101,11 @@ public class Host {
 		this.phoneNum = phoneNum;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
 	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

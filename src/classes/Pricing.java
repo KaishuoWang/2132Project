@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Pricing {
 	private String propertyClass;

@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Branch {
 	private int branchID;

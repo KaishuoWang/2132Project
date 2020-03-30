@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Guest {
 	private int guestID;
@@ -7,12 +7,16 @@ public class Guest {
 	private String lName;
 	private String emailAddress;
 	private int phoneNum;
+	private String password;
 	
-	public Guest(int ID, String fName, String lName) {
+	public Guest(int ID, String fName, String lName, String password) {
 		this.setGuestID(ID);
 		this.setfName(fName);
 		this.setlName(lName);
+		this.password = password;
 	}
+	
+	public Guest() {}
 
 	public int getGuestID() {
 		return guestID;
@@ -60,5 +64,13 @@ public class Guest {
 
 	public void setPhoneNum(int phoneNum) {
 		this.phoneNum = phoneNum;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

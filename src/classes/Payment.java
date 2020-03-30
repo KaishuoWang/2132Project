@@ -1,4 +1,4 @@
-package Types;
+package classes;
 
 public class Payment {
 	private int paymentID;
