@@ -54,7 +54,7 @@ public class DBHandler {
 	
 	public void inserteGuest(Guest guest) {
 		try {
-			sql = "insert into guest values (?,?,?,?,?,?,?)";
+			sql = "insert into Project.guest values (?,?,?,?,?,?,?)";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1, guest.getGuestID());
 			preparedStatement.setString(2, guest.getPassword());
@@ -72,7 +72,7 @@ public class DBHandler {
 	
 	public boolean findGuest(int ID) {
 		try {
-			sql = "select * from guest where guestid = ?";
+			sql = "select * from Project.guest where guestid = ?";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1, ID);
 			resultSet = preparedStatement.executeQuery();
