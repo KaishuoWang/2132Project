@@ -10,9 +10,8 @@ public class test {
 		Guest guest = new Guest(123, "W", "K", "1123");
 		
 		//dbHandler.inserteGuest(guest);
+		dbHandler.removeGuest(123);
 		
-		boolean result = dbHandler.findGuest(123);
-		System.out.println(result);
 		dbHandler.closeDB();
 	}
 }

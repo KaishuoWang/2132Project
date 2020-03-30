@@ -111,4 +111,37 @@ public class DBHandler {
 			return result;
 		}
 	}
+	
+	public void updateGuestInt(int id, String column, int content) {
+		try {
+			sql = "update Project.guest set " + column + " = " + "\'" + content + "\'" +" where guestid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateGuestString(int id, String column, String content) {
+		try {
+			sql = "update Project.guest set " + column + " = " + "\'" + content + "\'" +" where guestid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeGuest(int id) {
+		try {
+			sql = "delete from Project.guest where guestid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 }
