@@ -14,6 +14,8 @@ public class Payment {
 		this.setAmount(amount);
 		this.setStatus(status);
 	}
+	
+	public Payment() {}
 
 	public int getPaymentID() {
 		return paymentID;

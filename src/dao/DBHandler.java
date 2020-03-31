@@ -12,6 +12,7 @@ import classes.Branch;
 import classes.Employee;
 import classes.Guest;
 import classes.Host;
+import classes.Payment;
 import classes.Pricing;
 import classes.Property;
 import classes.rentalAgreement;
@@ -742,6 +743,113 @@ public class DBHandler {
 	public void removePricing(String propertyClass) {
 		try {
 			sql = "delete from Project.pricing where class = " + propertyClass;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) { 
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	//payment functions
+	public void insertePayment(Payment payment) {
+		try {
+			sql = "insert into Project.payment values (?,?,?,?,?)";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, payment.getPaymentID());
+			preparedStatement.setInt(2, payment.getHostID());
+			preparedStatement.setString(3, payment.getPaymentType());
+			preparedStatement.setFloat(4, payment.getAmount());
+			preparedStatement.setString(5, payment.getStatus());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean findPayment(int ID) {
+		try {
+			sql = "select * from Project.payment where paymentid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public String checkPaymentStatus(int ID) {
+		String result = "";
+		try {
+			sql = "select status from project.payment where paymentid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			while (resultSet.next()) {
+				result = resultSet.getString(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public ArrayList<Payment> getAllPayment() {
+		ArrayList<Payment> result = new ArrayList<Payment>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.payment";
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Payment payment = new Payment();
+				payment.setPaymentID(resultSet.getInt(1));
+				payment.setHostID(resultSet.getInt(2));
+				payment.setPaymentType(resultSet.getString(3));
+				payment.setAmount(resultSet.getFloat(4));
+				payment.setStatus(resultSet.getString(5));
+				result.add(payment);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public void updatePaymentInt(int ID, String column, int content) {
+		try {
+			sql = "update Project.payment set " + column + " = " + "\'" + content + "\'" +" where paymentid = " + ID;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updatePaymentString(int ID, String column, String content) {
+		try {
+			sql = "update Project.payment set " + column + " = " + "\'" + content + "\'" +" where paymentid = " + ID;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removePayment(int ID) {
+		try {
+			sql = "delete from Project.payment where class = " + ID;
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) { 
