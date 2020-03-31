@@ -15,6 +15,7 @@ import classes.Host;
 import classes.Payment;
 import classes.Pricing;
 import classes.Property;
+import classes.Review;
 import classes.rentalAgreement;
 
 public class DBHandler {
@@ -849,7 +850,99 @@ public class DBHandler {
 	
 	public void removePayment(int ID) {
 		try {
-			sql = "delete from Project.payment where class = " + ID;
+			sql = "delete from Project.payment where paymentid = " + ID;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) { 
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	//review functions
+	public void inserteReview(Review review) {
+		try {
+			sql = "insert into Project.review values (?,?,?,?,?,?)";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, review.getReviewID());
+			preparedStatement.setInt(2, review.getPropertyID());
+			preparedStatement.setInt(3, review.getRating());
+			preparedStatement.setString(4, review.getCommunication());
+			preparedStatement.setString(5, review.getCleanliness());
+			preparedStatement.setString(6, review.getValue());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean findReview(int ID) {
+		try {
+			sql = "select * from Project.review where reviewid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public ArrayList<Review> getAllReview() {
+		ArrayList<Review> result = new ArrayList<Review>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.review";
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Review review = new Review();
+				review.setReviewID(resultSet.getInt(1));
+				review.setPropertyID(resultSet.getInt(2));
+				review.setRating(resultSet.getInt(3));
+				review.setCommunication(resultSet.getString(4));
+				review.setCleanliness(resultSet.getString(5));
+				review.setValue(resultSet.getString(6));
+				result.add(review);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public void updateReviewInt(int ID, String column, int content) {
+		try {
+			sql = "update Project.review set " + column + " = " + "\'" + content + "\'" +" where reviewid = " + ID;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateReviewString(int ID, String column, String content) {
+		try {
+			sql = "update Project.review set " + column + " = " + "\'" + content + "\'" +" where reviewid = " + ID;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeReview(int ID) {
+		try {
+			sql = "delete from Project.review where reviewid = " + ID;
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) { 

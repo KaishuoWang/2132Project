@@ -5,12 +5,15 @@ public class Review {
 	private int propertyID;
 	private int rating;
 	private String communication;
+	private String cleanlinessString;
 	private String value;
 	
 	public Review(int reviewID, int propertyID) {
 		this.setReviewID(reviewID);
 		this.setPropertyID(propertyID);
 	}
+	
+	public Review () {}
 
 	public int getReviewID() {
 		return reviewID;
@@ -50,6 +53,14 @@ public class Review {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+	
+	public String getCleanliness() {
+		return cleanlinessString;
+	}
+	
+	public void setCleanliness(String cleanlinessString) {
+		this.cleanlinessString = cleanlinessString;
 	}
 	
 }
