@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function validate() {
+			var name = document.getElementById("name");
+			var password = document.getElementById("password");
+			if (name.value == "") {
+				alert("Your name cannot be empty");
+				return false;
+			}
+			if (password.value == "") {
+				alert("Your password cannot be empty");
+				return false;
+			}
+			return true;
+		}
+	</script>
+
+	<form action="login">
+		<h1>Welcome</h1>
+		Name: <input type="text" name="name" id="name"><br><br>
+		Password: <input type="password" name="password" id="password"><br><br>
+		Role: <input type="radio" name="role" value="employee">Employee 
+			<input type="radio" name="role" value="customer">Guest
+			<input type="radio" name="role" value="host">Host<br><br>
+		Area: <input type="checkbox" name="area" value="beijing">Beijing <input type="checkbox" name="area" value="shanghai">Shanghai<br><br>
+		<button type="submit" onclick="return validate();">Login</button>
+		<button type="reset">Reset</button>
+		
+	</form>
+	<a href="https://www.baidu.com">baidu.com</a>
+</body>
+</html>
