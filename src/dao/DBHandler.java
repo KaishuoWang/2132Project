@@ -12,6 +12,7 @@ import classes.Branch;
 import classes.Employee;
 import classes.Guest;
 import classes.Host;
+import classes.Pricing;
 import classes.Property;
 import classes.rentalAgreement;
 
@@ -657,6 +658,90 @@ public class DBHandler {
 	public void removeProperty(int id) {
 		try {
 			sql = "delete from Project.property where propertyid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) { 
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	//pricing functions
+	public void insertePricing(Pricing pricing) {
+		try {
+			sql = "insert into Project.pricing values (?,?)";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setString(1, pricing.getPropertyClass());
+			preparedStatement.setFloat(2, pricing.getPrice());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean findPricing(String propertyClass) {
+		try {
+			sql = "select * from Project.pricing where class = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setString(1, propertyClass);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public ArrayList<Pricing> getAllPricing() {
+		ArrayList<Pricing> result = new ArrayList<Pricing>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.pricing";
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Pricing pricing = new Pricing();
+				pricing.setPropertyClass(resultSet.getString(1));
+				pricing.setPrice(resultSet.getFloat(2));
+				result.add(pricing);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public void updatePricingInt(String propertyClass, String column, int content) {
+		try {
+			sql = "update Project.pricing set " + column + " = " + "\'" + content + "\'" +" where class = " + propertyClass;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updatePricingString(String propertyClass, String column, String content) {
+		try {
+			sql = "update Project.pricing set " + column + " = " + "\'" + content + "\'" +" where class = " + propertyClass;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removePricing(String propertyClass) {
+		try {
+			sql = "delete from Project.pricing where class = " + propertyClass;
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) { 

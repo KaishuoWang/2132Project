@@ -7,6 +7,8 @@ public class Pricing {
 	public Pricing(String propertyClass) {
 		this.propertyClass = propertyClass;
 	}
+	
+	public Pricing() {}
 
 	public String getPropertyClass() {
 		return propertyClass;
