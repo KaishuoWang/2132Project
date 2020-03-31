@@ -31,6 +31,8 @@ public class Property {
 		this.setPrice(price);
 		this.setPropertyClass(propertyClass);
 	}
+	
+	public Property() {}
 
 	public int getPropertyID() {
 		return propertyID;

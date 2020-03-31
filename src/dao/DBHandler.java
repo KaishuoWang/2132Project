@@ -12,6 +12,7 @@ import classes.Branch;
 import classes.Employee;
 import classes.Guest;
 import classes.Host;
+import classes.Property;
 import classes.rentalAgreement;
 
 public class DBHandler {
@@ -463,7 +464,7 @@ public class DBHandler {
 	//agreement functions
 	public void inserteRA(rentalAgreement rentalAgreement) {
 		try {
-			sql = "insert into Project.branch values (?,?,?,?,?,?,?)";
+			sql = "insert into Project.rentalAgreement values (?,?,?,?,?,?,?)";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1, rentalAgreement.getAgreementID());
 			preparedStatement.setInt(2, rentalAgreement.getHostID());
@@ -500,7 +501,7 @@ public class DBHandler {
 		ArrayList<rentalAgreement> result = new ArrayList<rentalAgreement>();
 		try {
 			statement = db.createStatement();
-			sql = "select * from Project.branch";
+			sql = "select * from Project.rentalagreement";
 			resultSet = statement.executeQuery(sql);
 			while (resultSet.next()) {
 				rentalAgreement rentalAgreement = new rentalAgreement();
@@ -546,6 +547,116 @@ public class DBHandler {
 	public void removeRA(int id) {
 		try {
 			sql = "delete from Project.rentalAgreement where agreementid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) { 
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	//property functions
+	public void inserteProperty(Property property) {
+		try {
+			sql = "insert into Project.property values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, property.getPropertyID());
+			preparedStatement.setInt(2, property.getOwnerID());
+			preparedStatement.setInt(3, property.getHouseNum());
+			preparedStatement.setString(4, property.getStreet());
+			preparedStatement.setString(5, property.getCity());
+			preparedStatement.setString(6, property.getProvince());
+			preparedStatement.setString(7, property.getCountry());
+			preparedStatement.setString(8, property.getRoomType());
+			preparedStatement.setFloat(9, property.getPrice());
+			preparedStatement.setDate(10, property.getAvailableDate());
+			preparedStatement.setString(11, property.getPropertyType());
+			preparedStatement.setString(12, property.getPropertyClass());
+			preparedStatement.setInt(13, property.getNumGuest());
+			preparedStatement.setString(14, property.getAmenities());
+			preparedStatement.setString(15, property.getRules());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean findProperty(int ID) {
+		try {
+			sql = "select * from Project.property where propertyID = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public ArrayList<Property> getAllProperty() {
+		ArrayList<Property> result = new ArrayList<Property>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.property";
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Property property = new Property();
+				property.setPropertyID(resultSet.getInt(1));
+				property.setOwnerID(resultSet.getInt(2));
+				property.setHouseNum(resultSet.getInt(3));
+				property.setStreet(resultSet.getString(4));
+				property.setCity(resultSet.getString(5));
+				property.setProvince(resultSet.getString(6));
+				property.setCountry(resultSet.getString(7));
+				property.setRoomType(resultSet.getString(8));
+				property.setPrice(resultSet.getFloat(9));
+				property.setAvailableDate(resultSet.getDate(10));
+				property.setPropertyType(resultSet.getString(11));
+				property.setPropertyClass(resultSet.getString(12));
+				property.setNumGuest(resultSet.getInt(13));
+				property.setAmenities(resultSet.getString(14));
+				property.setRules(resultSet.getString(15));
+				result.add(property);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public void updatePropertyInt(int id, String column, int content) {
+		try {
+			sql = "update Project.property set " + column + " = " + "\'" + content + "\'" +" where propertyid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updatePropertyString(int id, String column, String content) {
+		try {
+			sql = "update Project.property set " + column + " = " + "\'" + content + "\'" +" where propertyid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeProperty(int id) {
+		try {
+			sql = "delete from Project.property where propertyid = " + id;
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) { 
