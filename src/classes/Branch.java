@@ -9,6 +9,14 @@ public class Branch {
 		this.setBranchID(branchID);
 		this.setCountry(country);
 	}
+	
+	public Branch(int branchID, int mgr, String country) {
+		this.setBranchID(branchID);
+		this.setCountry(country);
+		this.branchMgr = mgr;
+	}
+	
+	public Branch() {}
 
 	public int getBranchID() {
 		return branchID;

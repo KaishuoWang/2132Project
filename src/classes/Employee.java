@@ -17,6 +17,16 @@ public class Employee {
 		this.password = password;
 	}
 	
+	public Employee(int employeeID, String fName, String lName, String password, int branchid) {
+		this.employeeID = employeeID;
+		this.fName = fName;
+		this.lName = lName;
+		this.password = password;
+		this.branchID = branchid;
+	}
+	
+	public Employee() {}
+	
 	public int getEmployeeID() {
 		return employeeID;
 	}

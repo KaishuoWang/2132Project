@@ -7,20 +7,20 @@ public class Host {
 	private String city;
 	private String province;
 	private String hostFN;
-	private String hostMN;
 	private String hostLN;
 	private String emailAddress;
 	private int phoneNum;
 	private String password;
 	
-	public Host(String fName, String mName, String lName, int ID, String password) {
+	public Host(String fName, String lName, int ID, String password) {
 		this.setHostFN(fName);
-		this.setHostMN(mName);
 		this.setHostLN(lName);
 		this.setHostID(ID);
 		this.password = password;
 	}
 
+	public Host() {}
+	
 	public int getHouseNum() {
 		return houseNum;
 	}
@@ -67,14 +67,6 @@ public class Host {
 
 	public void setHostFN(String hostFN) {
 		this.hostFN = hostFN;
-	}
-
-	public String getHostMN() {
-		return hostMN;
-	}
-
-	public void setHostMN(String hostMN) {
-		this.hostMN = hostMN;
 	}
 
 	public String getHostLN() {
