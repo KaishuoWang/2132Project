@@ -12,6 +12,7 @@ import classes.Branch;
 import classes.Employee;
 import classes.Guest;
 import classes.Host;
+import classes.rentalAgreement;
 
 public class DBHandler {
 	private Connection db;
@@ -454,6 +455,100 @@ public class DBHandler {
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	//agreement functions
+	public void inserteRA(rentalAgreement rentalAgreement) {
+		try {
+			sql = "insert into Project.branch values (?,?,?,?,?,?,?)";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, rentalAgreement.getAgreementID());
+			preparedStatement.setInt(2, rentalAgreement.getHostID());
+			preparedStatement.setInt(3, rentalAgreement.getGuestID());
+			preparedStatement.setInt(4, rentalAgreement.getPropertyID());
+			preparedStatement.setDate(5, rentalAgreement.getStartDate());
+			preparedStatement.setDate(6, rentalAgreement.getEndDate());
+			preparedStatement.setString(7, rentalAgreement.getSigning());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean findRA(int ID) {
+		try {
+			sql = "select * from Project.rentalagreement where agreementid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public ArrayList<rentalAgreement> getAllRA() {
+		ArrayList<rentalAgreement> result = new ArrayList<rentalAgreement>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.branch";
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				rentalAgreement rentalAgreement = new rentalAgreement();
+				rentalAgreement.setAgreementID(resultSet.getInt(1));
+				rentalAgreement.setHostID(resultSet.getInt(2));
+				rentalAgreement.setGuestID(resultSet.getInt(3));
+				rentalAgreement.setPropertyID(resultSet.getInt(4));
+				rentalAgreement.setStartDate(resultSet.getDate(5));
+				rentalAgreement.setEndDate(resultSet.getDate(6));
+				rentalAgreement.setSigning(resultSet.getString(7));
+				result.add(rentalAgreement);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
+	public void updateRAInt(int id, String column, int content) {
+		try {
+			sql = "update Project.rentalAgreement set " + column + " = " + "\'" + content + "\'" +" where agreementid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateRAString(int id, String column, String content) {
+		try {
+			sql = "update Project.rentalAgreement set " + column + " = " + "\'" + content + "\'" +" where agreementid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeRA(int id) {
+		try {
+			sql = "delete from Project.rentalAgreement where agreementid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) { 
 			// TODO: handle exception
 			e.printStackTrace();
 		}

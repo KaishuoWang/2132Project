@@ -20,6 +20,8 @@ public class rentalAgreement {
         this.setEndDate(endDate);
         this.setSigning(signing);
     }
+	
+	public rentalAgreement() {}
 
 	public int getAgreementID() {
 		return agreementID;
