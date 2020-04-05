@@ -19,13 +19,15 @@ public class LoginServlet extends HttpServlet{
 		String idString = req.getParameter("id");
 		int id = Integer.parseInt(idString);
 		DBHandler dbHandler = new DBHandler();
+		boolean found = false;
 		
 		if(role.equals("employee")) {
-			dbHandler.findEmployee(id);
+			found = dbHandler.findEmployee(id);
+			resp.sendRedirect("loginSuccess.html");
 		}else if (role.equals("guest")){
-			dbHandler.findGuest(id);
+			found = dbHandler.findGuest(id);
 		}else if (role.equals("host")) {
-			dbHandler.findHost(id);
+			found = dbHandler.findHost(id);
 		}
 	}
 	

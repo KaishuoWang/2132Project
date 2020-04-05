@@ -10,11 +10,14 @@ import classes.Host;
 public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
-		Employee employee = new Employee(123, "K", "W", "123",123);
+		//Employee employee = new Employee(123, "K", "W", "123",123);
 		Branch branch = new Branch(123, "China");
 		//dbHandler.inserteBranchFirst(branch);
 		
-		dbHandler.inserteEmplloyee(employee);
+		//dbHandler.inserteEmplloyee(employee);
+		
+		Employee employee = dbHandler.getEmployee(123);
+		System.out.println(employee.getfName());
 		
 		//System.out.println(dbHandler.findBranch(123));
 		

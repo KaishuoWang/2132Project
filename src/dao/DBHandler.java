@@ -96,6 +96,30 @@ public class DBHandler {
 		}
 	}
 	
+	public Guest getGuest(int ID) {
+		Guest guest = new Guest();
+		try {
+			sql = "select * from Project.guest where guestid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				guest.setGuestID(resultSet.getInt(1));
+				guest.setPassword(resultSet.getString(2));
+				guest.setAddress(resultSet.getString(3));
+				guest.setfName(resultSet.getString(4));
+				guest.setlName(resultSet.getString(5));
+				guest.setEmailAddress(resultSet.getString(6));
+				guest.setPhoneNum(resultSet.getInt(7));
+			}
+			return guest;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return guest;
+		}
+	}
+	
 	public ArrayList<Guest> getAllGuest() {
 		ArrayList<Guest> result = new ArrayList<Guest>();
 		try {
@@ -190,6 +214,33 @@ public class DBHandler {
 			// TODO: handle exception
 			e.printStackTrace();
 			return false;
+		}
+	}
+	
+	public Host getHost(int ID) {
+		Host host = new Host();
+		try {
+			sql = "select * from Project.host where hostid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				host.setHostID(resultSet.getInt(1));
+				host.setPassword(resultSet.getString(2));
+				host.setHouseNum(resultSet.getInt(3));
+				host.setStreet(resultSet.getString(4));
+				host.setCity(resultSet.getString(5));
+				host.setProvince(resultSet.getString(6));
+				host.setHostFN(resultSet.getString(7));
+				host.setHostLN(resultSet.getString(8));
+				host.setEmailAddress(resultSet.getString(9));
+				host.setPhoneNum(resultSet.getInt(10));
+			}
+			return host;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return host;
 		}
 	}
 	
@@ -304,6 +355,30 @@ public class DBHandler {
 			// TODO: handle exception
 			e.printStackTrace();
 			return false;
+		}
+	}
+	
+	public Employee getEmployee(int ID) {
+		Employee employee = new Employee();
+		try {
+			sql = "select * from Project.employee where employeeid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				employee.setEmployeeID(resultSet.getInt(1));
+				employee.setPassword(resultSet.getString(2));
+				employee.setfName(resultSet.getString(3));
+				employee.setlName(resultSet.getString(4));
+				employee.setSalary(resultSet.getFloat(5));
+				employee.setPosition(resultSet.getString(6));
+				employee.setBranchID(resultSet.getInt(7));
+			}
+			return employee;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return employee;
 		}
 	}
 	
