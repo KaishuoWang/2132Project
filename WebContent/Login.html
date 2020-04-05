@@ -21,18 +21,17 @@
 		}
 	</script>
 
-	<form action="login">
+	<form action="Login" method="post">
 		<h1>Welcome</h1>
+		ID: <input type="text" name="id" id="id"><br><br>
 		Name: <input type="text" name="name" id="name"><br><br>
 		Password: <input type="password" name="password" id="password"><br><br>
 		Role: <input type="radio" name="role" value="employee">Employee 
-			<input type="radio" name="role" value="customer">Guest
+			<input type="radio" name="role" value="guest">Guest
 			<input type="radio" name="role" value="host">Host<br><br>
-		Area: <input type="checkbox" name="area" value="beijing">Beijing <input type="checkbox" name="area" value="shanghai">Shanghai<br><br>
 		<button type="submit" onclick="return validate();">Login</button>
 		<button type="reset">Reset</button>
 		
 	</form>
-	<a href="https://www.baidu.com">baidu.com</a>
 </body>
 </html>

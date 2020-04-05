@@ -14,7 +14,7 @@ public class test {
 		Branch branch = new Branch(123, "China");
 		//dbHandler.inserteBranchFirst(branch);
 		
-		//dbHandler.inserteEmplloyee(employee);
+		dbHandler.inserteEmplloyee(employee);
 		
 		//System.out.println(dbHandler.findBranch(123));
 		
@@ -25,7 +25,7 @@ public class test {
 		
 		//dbHandler.updateBranchString(123, "country", "Canada");
 		
-		dbHandler.removeEmployee(123);
+		//dbHandler.removeEmployee(123);
 		
 		dbHandler.closeDB();
 	}
