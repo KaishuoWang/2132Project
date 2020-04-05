@@ -244,6 +244,40 @@ public class DBHandler {
 		}
 	}
 	
+	public ArrayList<Property> getOwnProperties(int ID){
+		ArrayList<Property> resultArrayList = new ArrayList<Property>();
+		try {
+			sql = "select * from Project.property where ownerid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Property property = new Property();
+				property.setPropertyID(resultSet.getInt(1));
+				property.setOwnerID(resultSet.getInt(2));
+				property.setHouseNum(resultSet.getInt(3));
+				property.setStreet(resultSet.getString(4));
+				property.setCity(resultSet.getString(5));
+				property.setProvince(resultSet.getString(6));
+				property.setCountry(resultSet.getString(7));
+				property.setRoomType(resultSet.getString(8));
+				property.setPrice(resultSet.getFloat(9));
+				property.setAvailableDate(resultSet.getDate(10));
+				property.setPropertyType(resultSet.getString(11));
+				property.setPropertyClass(resultSet.getString(12));
+				property.setNumGuest(resultSet.getInt(13));
+				property.setAmenities(resultSet.getString(14));
+				property.setRules(resultSet.getString(15));
+				resultArrayList.add(property);
+			}
+			return resultArrayList;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return resultArrayList;
+		}
+	}
+	
 	public ArrayList<Host> getAllHost() {
 		ArrayList<Host> result = new ArrayList<Host>();
 		try {
