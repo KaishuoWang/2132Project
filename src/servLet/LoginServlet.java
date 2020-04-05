@@ -26,21 +26,21 @@ public class LoginServlet extends HttpServlet{
 			if(found) {
 				req.getRequestDispatcher("/loginSuccessEmployee.jsp").forward(req, resp);
 			}else {
-				resp.sendRedirect("loginFail.html");
+				req.getRequestDispatcher("/loginFailed.jsp").forward(req, resp);
 			}
 		}else if (role.equals("guest")){
 			found = dbHandler.findGuest(id);
 			if(found) {
 				req.getRequestDispatcher("/loginSuccessGuest.jsp").forward(req, resp);
 			}else {
-				resp.sendRedirect("loginFail.html");
+				req.getRequestDispatcher("/loginFailed.jsp").forward(req, resp);
 			}
 		}else if (role.equals("host")) {
 			found = dbHandler.findHost(id);
 			if(found) {
 				req.getRequestDispatcher("/loginSuccessHost.jsp").forward(req, resp);
 			}else {
-				resp.sendRedirect("loginFail.html");
+				req.getRequestDispatcher("/loginFailed.jsp").forward(req, resp);
 			}
 		}
 		dbHandler.closeDB();
