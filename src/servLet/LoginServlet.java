@@ -23,12 +23,27 @@ public class LoginServlet extends HttpServlet{
 		
 		if(role.equals("employee")) {
 			found = dbHandler.findEmployee(id);
-			resp.sendRedirect("loginSuccess.html");
+			if(found) {
+				req.getRequestDispatcher("/loginSuccessEmployee.jsp").forward(req, resp);
+			}else {
+				resp.sendRedirect("loginFail.html");
+			}
 		}else if (role.equals("guest")){
 			found = dbHandler.findGuest(id);
+			if(found) {
+				req.getRequestDispatcher("/loginSuccessGuest.jsp").forward(req, resp);
+			}else {
+				resp.sendRedirect("loginFail.html");
+			}
 		}else if (role.equals("host")) {
 			found = dbHandler.findHost(id);
+			if(found) {
+				req.getRequestDispatcher("/loginSuccessHost.jsp").forward(req, resp);
+			}else {
+				resp.sendRedirect("loginFail.html");
+			}
 		}
+		dbHandler.closeDB();
 	}
 	
 	@Override
