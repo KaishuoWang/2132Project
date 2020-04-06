@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet{
 		if(role.equals("employee")) {
 			found = dbHandler.findEmployee(id);
 			if(found) {
+				req.setAttribute("name", dbHandler.getEmployee(id).getfName() + dbHandler.getEmployee(id).getlName());
 				req.getRequestDispatcher("/loginSuccessEmployee.jsp").forward(req, resp);
 			}else {
 				req.getRequestDispatcher("/loginFailed.jsp").forward(req, resp);
