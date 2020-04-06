@@ -15,8 +15,15 @@
 	<script type="text/javascript">
 		function validate() {
 			var hostID = document.getElementById("hostID");
-			if(dbHandler.findHost())
+			if(!dbHandler.findHost(hostID.value)){
+				alert("Your hostID is wrong");
+				return false;
+			}
 			var propertyID = document.getElementById("propertyID");
+			if(!dbHandler.findHost()){
+				alert("Your hostID is wrong");
+				return false;
+			}
 			if (name.value == "") {
 				alert("Your name cannot be empty");
 				return false;
