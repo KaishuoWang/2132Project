@@ -14,22 +14,21 @@
 	
 	<script type="text/javascript">
 		function validate() {
-			var hostID = document.getElementById("hostID");
-			if(!dbHandler.findHost(hostID.value)){
-				alert("Your hostID is wrong");
-				return false;
-			}
 			var propertyID = document.getElementById("propertyID");
-			if(!dbHandler.findHost()){
-				alert("Your hostID is wrong");
-				return false;
-			}
-			if (name.value == "") {
-				alert("Your name cannot be empty");
-				return false;
-			}
-			if (password.value == "") {
-				alert("Your password cannot be empty");
+			var houseNum = document.getElementById("houseNum");
+			var street = document.getElementById("street");
+			var city = document.getElementById("city");
+			var province = document.getElementById("province");
+			var country = document.getElementById("country");
+			var roomType = document.getElementById("roomType");
+			var price = document.getElementById("price");
+			var availableDate = document.getElementById("availableDate");
+			var propertyType = document.getElementById("propertyType");
+			var Class = document.getElementByName("class");
+			var guestNum = document.getElementById("guestNum");
+			
+			if (propertyID.value == "") {
+				alert("Your propertyID cannot be empty");
 				return false;
 			}
 			return true;
@@ -49,17 +48,17 @@
 		<%=result.get(i).getHouseNum() + " " + result.get(i).getStreet() + ", " + result.get(i).getCity() + ", " + result.get(i).getProvince() + ", " + result.get(i).getCountry() %></h4><br>
 	<%} %>
 	
-	<form action="create" method="post">
+	<form action="createProperty" method="post">
 		<h3>You can add more property here:</h3>
-		Your ID: <input type="text" name="hostID" id="hostID"><br><br>
 		Property ID: <input type="text" name="propertyID" id="propertyID"><br><br>
 		House Number: <input type="text" name="houseNum" id="houseNum"><br><br>
 		Street: <input type="text" name="street" id="street"><br><br>
+		City: <input type="text" name="city" id="city"><br><br>
 		Province: <input type="text" name="province" id="province"><br><br>
 		Country: <input type="text" name="country" id="country"><br><br>
 		Room Type: <input type="text" name="roomType" id="roomType"><br><br>
 		Price: <input type="text" name="price" id="price"><br><br>
-		Available Date: <input type="text" name="date" id="date"><br><br>
+		Available Date: <input type="text" name="availableDate" id="availableDate"><br><br>
 		Property Type: <input type="text" name="propertyType" id="propertyType"><br><br>
 		Class: <input type="radio" name="class" value="A">A 
 				<input type="radio" name="class" value="B">B 
