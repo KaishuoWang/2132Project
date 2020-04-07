@@ -671,7 +671,7 @@ public class DBHandler {
 	//property functions
 	public void inserteProperty(Property property) {
 		try {
-			sql = "insert into Project.property values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into Project.property values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1, property.getPropertyID());
 			preparedStatement.setInt(2, property.getOwnerID());
@@ -688,6 +688,7 @@ public class DBHandler {
 			preparedStatement.setInt(13, property.getNumGuest());
 			preparedStatement.setString(14, property.getAmenities());
 			preparedStatement.setString(15, property.getRules());
+			preparedStatement.setBoolean(16, property.getAvailable());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -735,6 +736,7 @@ public class DBHandler {
 				property.setNumGuest(resultSet.getInt(13));
 				property.setAmenities(resultSet.getString(14));
 				property.setRules(resultSet.getString(15));
+				property.setAvailable(resultSet.getBoolean(16));
 				result.add(property);
 			}
 			return result;
@@ -748,6 +750,17 @@ public class DBHandler {
 	public void updateAvailableDate(int id, Date availableDate) {
 		try {
 			sql = "update Project.property set availabledate = " + "\'" + availableDate + "\'" +" where propertyid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateAvailable(int id, boolean available) {
+		try {
+			sql = "update Project.property set available = " + "\'" + available + "\'" +" where propertyid = " + id;
 			statement = db.createStatement();
 			statement.executeUpdate(sql);
 		} catch (SQLException e) {

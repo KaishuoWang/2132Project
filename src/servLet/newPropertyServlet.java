@@ -23,7 +23,7 @@ public class newPropertyServlet extends HttpServlet{
 			resp.sendRedirect("newPropertyFailed.html");
 		}else {
 			resp.sendRedirect("success.html");
-			Property property = new Property(Integer.parseInt(req.getParameter("propertyID")), Integer.parseInt(req.getParameter("ownerID")), Integer.parseInt(req.getParameter("houseNum")), req.getParameter("street"), req.getParameter("city"), req.getParameter("province"), req.getParameter("country"), req.getParameter("roomType"), Float.parseFloat(req.getParameter("price")), req.getParameter("class"));
+			Property property = new Property(Integer.parseInt(req.getParameter("propertyID")), Integer.parseInt(req.getParameter("ownerID")), Integer.parseInt(req.getParameter("houseNum")), req.getParameter("street"), req.getParameter("city"), req.getParameter("province"), req.getParameter("country"), req.getParameter("roomType"), Float.parseFloat(req.getParameter("price")), req.getParameter("class"), true);
 			property.setAvailableDate(Date.valueOf(req.getParameter("availableDate")));
 			property.setPropertyType(req.getParameter("propertyType"));
 			property.setNumGuest(Integer.parseInt(req.getParameter("guestNum")));
