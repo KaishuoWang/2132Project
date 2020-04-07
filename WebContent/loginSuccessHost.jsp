@@ -10,30 +10,76 @@
 <title>Login Success</title>
 </head>
 <body>
-	<%! DBHandler dbHandler = new DBHandler();%>
-	
 	<script type="text/javascript">
 		function validate() {
-			var propertyID = document.getElementById("propertyID");
-			var houseNum = document.getElementById("houseNum");
-			var street = document.getElementById("street");
-			var city = document.getElementById("city");
-			var province = document.getElementById("province");
-			var country = document.getElementById("country");
-			var roomType = document.getElementById("roomType");
-			var price = document.getElementById("price");
-			var availableDate = document.getElementById("availableDate");
-			var propertyType = document.getElementById("propertyType");
-			var Class = document.getElementByName("class");
-			var guestNum = document.getElementById("guestNum");
+			var propertyID = document.getElementById("propertyID").value;
+			var houseNum = document.getElementById("houseNum").value;
+			var street = document.getElementById("street").value;
+			var city = document.getElementById("city").value;
+			var province = document.getElementById("province").value;
+			var country = document.getElementById("country").value;
+			var roomType = document.getElementById("roomType").value;
+			var price = document.getElementById("price").value;
+			var availableDate = document.getElementById("availableDate").value;
+			var propertyType = document.getElementById("propertyType").value;
+			var radio = document.getElementsByName("class");
+			var Class;
+			for (i=0; i<radio.length; i++) {
+				if (radio[i].checked) {
+					Class = radio[i].value;
+				}
+			}
+			var guestNum = document.getElementById("guestNum").value;
 			
-			if (propertyID.value == "") {
+			if (propertyID == "") {
 				alert("Your propertyID cannot be empty");
+				return false;
+			}
+			if (houseNum.value == "") {
+				alert("Your house number cannot be empty");
+				return false;
+			}
+			if (street.value == "") {
+				alert("Your street cannot be empty");
+				return false;
+			}
+			if (city.value == "") {
+				alert("Your city cannot be empty");
+				return false;
+			}
+			if (province.value == "") {
+				alert("Your province cannot be empty");
+				return false;
+			}
+			if (country.value == "") {
+				alert("Your country cannot be empty");
+				return false;
+			}
+			if (roomType.value == "") {
+				alert("Your room type cannot be empty");
+				return false;
+			}
+			if (price.value == "") {
+				alert("Your price cannot be empty");
+				return false;
+			}
+			if (availableDate.value == "") {
+				alert("Your available date cannot be empty");
+				return false;
+			}
+			if (propertyType.value == "") {
+				alert("Your property type cannot be empty");
+				return false;
+			}
+			if (Class.value == "") {
+				alert("Your class cannot be empty");
 				return false;
 			}
 			return true;
 		}
 	</script>
+	
+	<%! DBHandler dbHandler = new DBHandler();%>
 
 	<h1>Welcome <%=request.getParameter("name") %>, you have login as a host</h1>
 	
@@ -69,6 +115,6 @@
 		<button type="submit" onclick="return validate();">create</button>
 		<button type="reset">Reset</button>
 	</form>
-	
+	<%dbHandler.closeDB(); %>
 </body>
 </html>

@@ -9,6 +9,6 @@
 <body>
 	<h1>login failed</h1>
 	<h3><%=request.getParameter("name") %>, please check your ID or password.</h3>
-	<a href="http://localhost:8080/2132Project/Login.html">Try Again</a>
+	<a href="javascript:history.go(-1);">Try Again</a>
 </body>
 </html>
