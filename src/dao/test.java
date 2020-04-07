@@ -1,5 +1,8 @@
 package dao;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import classes.Branch;
@@ -12,9 +15,12 @@ public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
 		
-		ArrayList<Property> resultArrayList = dbHandler.getOwnProperties(123);
-		System.out.println(resultArrayList.get(0).getAvailableDate());
+		
 		
 		dbHandler.closeDB();
+		
+		Date d = Date.valueOf("2020-01-03");
+		
+		System.out.println(d);
 	}
 }

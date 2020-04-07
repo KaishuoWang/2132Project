@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -741,6 +742,17 @@ public class DBHandler {
 			// TODO: handle exception
 			e.printStackTrace();
 			return result;
+		}
+	}
+	
+	public void updateAvailableDate(int id, Date availableDate) {
+		try {
+			sql = "update Project.property set availabledate = " + "\'" + availableDate + "\'" +" where propertyid = " + id;
+			statement = db.createStatement();
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	

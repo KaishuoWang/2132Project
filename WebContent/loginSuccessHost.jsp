@@ -11,7 +11,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		function validate() {
+		function validateInsert() {
 			var propertyID = document.getElementById("propertyID").value;
 			var houseNum = document.getElementById("houseNum").value;
 			var street = document.getElementById("street").value;
@@ -77,6 +77,31 @@
 			}
 			return true;
 		}
+		
+		function validateDelete() {
+			var propertyID = document.getElementById("propertyIDDelete").value;
+			if (propertyID == "") {
+				alert("Your property id cannot be empty");
+				return false;
+			}
+			return true;
+		}
+		
+		function validateEdit(){
+			var propertyID = document.getElementById("propertyIDEdit").value;
+			var amenities = document.getElementById("amenitiesEdit").value;
+			var rules = document.getElementById("rulesEdit").value;
+			var availableDate = document.getElementById("availableDateEdit").value;
+			if (propertyID == "") {
+				alert("Your property id cannot be empty");
+				return false;
+			}
+			if (amenities == "" && rules == "" && availableDate == "") {
+				alert("Your have to fill one fo rule, amenity, available date");
+				return false;
+			}
+			return true;
+		}
 	</script>
 	
 	<%! DBHandler dbHandler = new DBHandler();%>
@@ -94,8 +119,19 @@
 		<%=result.get(i).getHouseNum() + " " + result.get(i).getStreet() + ", " + result.get(i).getCity() + ", " + result.get(i).getProvince() + ", " + result.get(i).getCountry() %></h4><br>
 	<%} %>
 	
+	<form action="editPropertyA&R" method="post">
+		<h3>You can edit amenities and rules here:</h3>
+		Property ID: <input type="text" name="propertyIDEdit" id="propertyIDEdit"><br><br>
+		Amenities: <input type="text" name="amenitiesEdit" id="amenitiesEdit"><br><br>
+		Rules: <input type="text" name="rulesEdit" id="rulesEdit"><br><br>
+		Available Date: <input type="text" name="availableDateEdit" id="availableDateEdit"><br><br>
+		<button type="submit" onclick="return validateEdit();">Edit</button>
+		<button type="reset">Reset</button>
+	</form>
+	
 	<form action="createProperty" method="post">
 		<h3>You can add more property here:</h3>
+		Your ID: <input type="text" name="ownerID" id="ownerID"><br><br>
 		Property ID: <input type="text" name="propertyID" id="propertyID"><br><br>
 		House Number: <input type="text" name="houseNum" id="houseNum"><br><br>
 		Street: <input type="text" name="street" id="street"><br><br>
@@ -104,7 +140,7 @@
 		Country: <input type="text" name="country" id="country"><br><br>
 		Room Type: <input type="text" name="roomType" id="roomType"><br><br>
 		Price: <input type="text" name="price" id="price"><br><br>
-		Available Date: <input type="text" name="availableDate" id="availableDate"><br><br>
+		Available Date:(yyyy-mm-dd) <input type="text" name="availableDate" id="availableDate"><br><br>
 		Property Type: <input type="text" name="propertyType" id="propertyType"><br><br>
 		Class: <input type="radio" name="class" value="A">A 
 				<input type="radio" name="class" value="B">B 
@@ -112,7 +148,14 @@
 		Number of Guest: <input type="text" name="guestNum" id="guestNum"><br><br>
 		Amenities: <input type="text" name="amenities" id="amenities"><br><br>
 		Rules: <input type="text" name="rules" id="rules"><br><br>
-		<button type="submit" onclick="return validate();">create</button>
+		<button type="submit" onclick="return validateInsert();">create</button>
+		<button type="reset">Reset</button>
+	</form>
+	
+	<form action="deleteProperty" method="post">
+		<h3>You can delete a property here:</h3>
+		Property ID: <input type="text" name="propertyIDDelete" id="propertyIDDelete"><br><br>
+		<button type="submit" onclick="return validateDelete();">remove</button>
 		<button type="reset">Reset</button>
 	</form>
 	<%dbHandler.closeDB(); %>
