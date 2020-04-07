@@ -1015,6 +1015,30 @@ public class DBHandler {
 		}
 	}
 	
+	public ArrayList<Review> getReviewByID(int ID){
+		ArrayList<Review> result = new ArrayList<Review>();
+		try {
+			statement = db.createStatement();
+			sql = "select * from Project.review where id = " + ID;
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Review review = new Review();
+				review.setReviewID(resultSet.getInt(1));
+				review.setPropertyID(resultSet.getInt(2));
+				review.setRating(resultSet.getInt(3));
+				review.setCommunication(resultSet.getString(4));
+				review.setCleanliness(resultSet.getString(5));
+				review.setValue(resultSet.getString(6));
+				result.add(review);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
 	public ArrayList<Review> getAllReview() {
 		ArrayList<Review> result = new ArrayList<Review>();
 		try {

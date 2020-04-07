@@ -124,7 +124,7 @@
 		Property ID: <input type="text" name="propertyIDEdit" id="propertyIDEdit"><br><br>
 		Amenities: <input type="text" name="amenitiesEdit" id="amenitiesEdit"><br><br>
 		Rules: <input type="text" name="rulesEdit" id="rulesEdit"><br><br>
-		Available Date: <input type="text" name="availableDateEdit" id="availableDateEdit"><br><br>
+		Available Date:(yyyy-mm-dd) <input type="text" name="availableDateEdit" id="availableDateEdit"><br><br>
 		<button type="submit" onclick="return validateEdit();">Edit</button>
 		<button type="reset">Reset</button>
 	</form>
