@@ -18,8 +18,9 @@ public class Property {
 	private int numGuest;
 	private String amenities;
 	private String rules;
+	private boolean available;
 	
-	public Property(int propertyID, int ownerID, int houseNum, String street, String city, String province, String country, String roomType, float price, String propertyClass) {
+	public Property(int propertyID, int ownerID, int houseNum, String street, String city, String province, String country, String roomType, float price, String propertyClass, boolean available) {
 		this.setPropertyID(propertyID);
 		this.setOwnerID(ownerID);
 		this.setHouseNum(houseNum);
@@ -30,6 +31,7 @@ public class Property {
 		this.setRoomType(roomType);
 		this.setPrice(price);
 		this.setPropertyClass(propertyClass);
+		this.available = available;
 	}
 	
 	public Property() {}
@@ -152,6 +154,14 @@ public class Property {
 
 	public void setRules(String rules) {
 		this.rules = rules;
+	}
+	
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+	
+	public boolean getAvailable() {
+		return available;
 	}
 	
 }
