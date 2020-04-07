@@ -19,8 +19,8 @@ public class test {
 		
 		dbHandler.closeDB();
 		
-		Date d = Date.valueOf("2020-01-03");
 		
-		System.out.println(d);
+		
+		System.out.println(6/2);
 	}
 }
