@@ -715,15 +715,25 @@ public class DBHandler {
 	
 	public boolean getPropertyStatement(int ID) {
 		try {
-			sql = "select * from Project.property where propertyID = ?";
+			sql = "select available from Project.property where propertyID = ?";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1,  ID);
 			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				if (resultSet.getBoolean(1)) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			return false;
+			/*
 			if(resultSet.getBoolean(16)) {
 				return true;
 			}else {
 				return false;
-			}
+			}*/
 		}catch(SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();

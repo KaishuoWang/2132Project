@@ -7,9 +7,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Book hotel</title>
 </head>
 <body>
+	<script type="text/javascript">
+		function validate() {
+			var propertyID = document.getElementById("id").value;
+			var guestID = document.getElementById("guestID").value;
+			if (propertyID == "") {
+				alert("Your property id cannot be empty");
+				return false;
+			}
+			if (guestID == "") {
+				alert("Your guest id cannot be empty");
+				return false;
+			}
+			return true;
+		}
+	</script>
 <form action="submit" method="post">
 	<h1>This is the Hotel that you can book</h1>
 	<%!DBHandler dbHandler = new DBHandler();%>
@@ -21,7 +36,8 @@
 		<%=result.get(i).getPrice() + " Street:" + result.get(i).getStreet() + ",  City:" + result.get(i).getCity() + ",  Province:" + result.get(i).getProvince() + ", Country:" + result.get(i).getCountry() + ", available date:" + result.get(i).getAvailableDate()%></h4><br>
 	<%} %><br>
 	PropertyID: <input type="text" name="id" id="id"><br>
-	<button type="submit">submit</button>
+	Your ID: <input type="text" name="guestID" id="guestID"><br>
+	<button type="submit" onclick="return validate();">book</button>
 	<button type="reset">Reset</button>
 	<p>Please remember the Property Id in order to book the Hotel.<p>
 </form>
