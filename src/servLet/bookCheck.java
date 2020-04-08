@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBHandler;
 
-@WebServlet(urlPatterns = "/submit")
+@WebServlet(urlPatterns = "/book")
 public class bookCheck extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		req.getRequestDispatcher("/bookCheck.jsp").forward(req, resp);
+		req.getRequestDispatcher("/bookHotel.jsp").forward(req, resp);
 		dbHandler.closeDB();
 	}
 	
