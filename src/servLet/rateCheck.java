@@ -12,16 +12,18 @@ import dao.DBHandler;
 
 @WebServlet(urlPatterns = "/review")
 public class rateCheck extends HttpServlet{
+	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
+		System.out.println("===============");
 		req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
 		dbHandler.closeDB();
 	}
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO auto-generated method stub
 		super.doGet(req, resp);
 	}
