@@ -7,7 +7,7 @@
 <title>Rate your property</title>
 </head>
 <body>
-	Your ID<input type="text", name="nameID", id="nameID"><br><br>
+	Your ID<input type="text" name="nameID" id="nameID"><br><br>
 	
 
 </body>

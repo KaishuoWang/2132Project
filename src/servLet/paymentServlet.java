@@ -24,7 +24,7 @@ public class paymentServlet extends HttpServlet{
 			resp.sendRedirect("alreadyBooked.html");
 		}else {
 			resp.sendRedirect("payment.html");
-			rentalAgreement rentalAgreement = new rentalAgreement(Integer.parseInt(req.getParameter("paymentID")),Integer.parseInt(req.getParameter("hostID")),Integer.parseInt(req.getParameter("propertyID")),Integer.parseInt(req.getParameter("guestID")),Date.valueOf(req.getParameter("startDate")),Date.valueOf(req.getParameter("endDate")),req.getParameter("signing"));
+			rentalAgreement rentalAgreement = new rentalAgreement(Integer.parseInt(req.getParameter("paymentID")),dbHandler.getPropertyHostid(Integer.parseInt(req.getParameter("propertyID"))),Integer.parseInt(req.getParameter("propertyID")),Integer.parseInt(req.getParameter("guestID")),Date.valueOf(req.getParameter("startDate")),Date.valueOf(req.getParameter("endDate")),req.getParameter("signing"));
 			if(req.getParameter("paymentID").equals("")) {
 				rentalAgreement.setAgreementID(0);
 				}
