@@ -18,7 +18,7 @@
 		<h4>Property ID:
 		<%=result.get(i).getPropertyID()%><br>
 		Hotel Price:
-		<%=result.get(i).getPrice() + " Street:" + result.get(i).getStreet() + ",  City:" + result.get(i).getCity() + ",  Province:" + result.get(i).getProvince() + ", Country:" + result.get(i).getCountry() + ", available date:" + result.get(i).getAvailableDate() %></h4><br>
+		<%=result.get(i).getPrice() + " Street:" + result.get(i).getStreet() + ",  City:" + result.get(i).getCity() + ",  Province:" + result.get(i).getProvince() + ", Country:" + result.get(i).getCountry() + ", available date:" + result.get(i).getAvailableDate()%></h4><br>
 	<%} %><br>
 	PropertyID: <input type="text" name="id" id="id"><br>
 	<button type="submit">submit</button>
