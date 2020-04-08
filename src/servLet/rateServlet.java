@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBHandler;
 
-@WebServlet(urlPatterns = "/rate")
+@WebServlet(urlPatterns = "/review")
 public class rateServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
