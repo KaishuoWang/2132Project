@@ -1,6 +1,7 @@
 package servLet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import classes.Property;
 import dao.DBHandler;
 
 @WebServlet(urlPatterns = "/submit")
@@ -16,9 +18,14 @@ public class bookSuccess extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		req.getRequestDispatcher("/rate.jsp").forward(req, resp);
+		if(dbHandler.getPropertyStatement(Integer.parseInt(req.getParameter("propertyID")))){
+			dbHandler.updateAvailable(Integer.parseInt(req.getParameter("propertyID")), false);
+			req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
+			}else {
+				resp.sendRedirect("alreadyBooked.html");
+				}
 		dbHandler.closeDB();
-	}
+		}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
