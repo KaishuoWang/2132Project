@@ -947,6 +947,22 @@ public class DBHandler {
 		}
 	}
 	
+	public float getPayment(int ID) {
+		float result = 0;
+		try {
+			sql = "select * from Project.payment where paymentid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			result = ((Payment) resultSet).getAmount();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return 0;
+		}
+		return result;
+	}
+	
 	public String checkPaymentStatus(int ID) {
 		String result = "";
 		try {
