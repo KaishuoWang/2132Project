@@ -20,7 +20,6 @@
 		<p>hostID:<%=request.getParameter("guestID")%><br><br></p>
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>
 		guestID: <input type="text" name="guestID" id="guestID"><br><br>
-		amount: <input type="text" name="amount" id="amount"><br><br>
 		<p>amount:<%=dbHandler.getPropertyAmount(Integer.parseInt(request.getParameter("id")))%><br><br>
 		Start Date:(yyyy-mm-dd:) <input type="text" name="startDate" id="startDate"><br><br>
 		End Date:(yyyy-mm-dd:) <input type="text" name="endDate" id="endDate"><br><br>
