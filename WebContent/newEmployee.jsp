@@ -42,7 +42,7 @@
 		ID: <input type="text" name="id" id="id"><br><br>
 		First Name: <input type="text" name="Fname" id="Fname"><br><br>
 		Last Name: <input type="text" name="Lname" id="Lname"><br><br>
-		Password: <input type="password" name="password" id="password"><br><br>
+		Password: <input type="text" name="password" id="password"><br><br>
 		Salary: <input type="text" name="salary" id="salary"><br><br>
 		Position: <input type="text" name="position" id="position"><br><br>
 		Branch ID: <input type="text" name="branch" id="branch"><br><br>

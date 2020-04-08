@@ -14,10 +14,8 @@
 		<h1>almost there!</h1>
 		<%!DBHandler dbHandler = new DBHandler(); %>
 		<p>just need one more step!<p><br>
-		<p>paymentID:</p>
-		<%=request.getParameter("id") %><br>
-		paymentID: <input type="text" name="paymentID" id="paymentID"><br><br>
-		hostID: <input type="text" name="hostID" id="hostID"><br><br>
+		<p>paymentID:<%=request.getParameter("id") %><br><br></p>
+		<p>hostID:<%=request.getParameter("guestID") %><br><br></p>
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>
 		guestID: <input type="text" name="guestID" id="guestID"><br><br>
 		amount: <input type="text" name="amount" id="amount"><br><br>
