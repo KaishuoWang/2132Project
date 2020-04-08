@@ -9,18 +9,15 @@ import classes.Branch;
 import classes.Employee;
 import classes.Guest;
 import classes.Host;
+import classes.Payment;
 import classes.Property;
 
 public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
-		
-		
-		
+	
 		dbHandler.closeDB();
 		
-		
-		
-		System.out.println(6/2);
+		System.out.println(4/2);
 	}
 }

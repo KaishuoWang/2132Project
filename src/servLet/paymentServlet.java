@@ -20,7 +20,6 @@ public class paymentServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		req.getRequestDispatcher("/payment.jsp").forward(req, resp);
 		rentalAgreement rentalAgreement = new rentalAgreement(Integer.parseInt(req.getParameter("paymentID")),Integer.parseInt(req.getParameter("hostID")),Integer.parseInt(req.getParameter("propertyID")),Integer.parseInt(req.getParameter("guestID")),Date.valueOf(req.getParameter("startDate")),Date.valueOf(req.getParameter("endDate")),req.getParameter("signing"));
 		if(!req.getParameter("paymentID").equals("")) {
 			rentalAgreement.setAgreementID(0);
@@ -44,6 +43,7 @@ public class paymentServlet extends HttpServlet{
 			rentalAgreement.setSigning(null);
 		}
 		dbHandler.inserteRA(rentalAgreement);
+		req.getRequestDispatcher("/payment.jsp").forward(req, resp);
 		dbHandler.closeDB();
 		}
 	

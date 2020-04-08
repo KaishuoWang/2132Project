@@ -10,6 +10,7 @@
 	<form action="finish" method="post">
 		<h1>almost there!</h1>
 		<p>just need one more step!<p><br>
+		request.getParameter("name")
 		paymentID: <input type="text" name="paymentID" id="paymentID"><br><br>
 		hostID: <input type="text" name="hostID" id="hostID"><br><br>
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>
