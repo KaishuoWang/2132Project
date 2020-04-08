@@ -21,7 +21,7 @@
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>
 		guestID: <input type="text" name="guestID" id="guestID"><br><br>
 		amount: <input type="text" name="amount" id="amount"><br><br>
-		<p>amount:<%=dbHandler.getPayment(Integer.parseInt(request.getParameter("paymentID")))%><br><br>
+		<p>amount:<%=dbHandler.getPayment(Integer.parseInt(request.getParameter("id")))%><br><br>
 		Start Date:(yyyy-mm-dd:) <input type="text" name="startDate" id="startDate"><br><br>
 		End Date:(yyyy-mm-dd:) <input type="text" name="endDate" id="endDate"><br><br>
 		Signing: <input type="text" name="signing" id="signing"><br><br>

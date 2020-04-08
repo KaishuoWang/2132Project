@@ -950,17 +950,19 @@ public class DBHandler {
 	public float getPayment(int ID) {
 		float result = 0;
 		try {
-			sql = "select * from Project.payment where paymentid = ?";
+			sql = "select amount from Project.payment where paymentid = ?";
 			preparedStatement = db.prepareStatement(sql);
 			preparedStatement.setInt(1, ID);
 			resultSet = preparedStatement.executeQuery();
-			result = ((Payment) resultSet).getAmount();
+			while(resultSet.next()) {
+				result = resultSet.getFloat(1);
+			}
+			return result;
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			return 0;
+			return result;
 		}
-		return result;
 	}
 	
 	public String checkPaymentStatus(int ID) {
