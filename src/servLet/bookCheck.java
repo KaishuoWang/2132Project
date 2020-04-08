@@ -27,4 +27,5 @@ public class bookCheck extends HttpServlet{
 		// TODO Auto-generated method stub
 		super.doGet(req, resp);
 	}
+	
 }
