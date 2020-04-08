@@ -17,7 +17,7 @@ public class bookServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		resp.sendRedirect("bookHotel.jsp");
+		req.getRequestDispatcher("/bookHotel.jsp").forward(req, resp);
 		dbHandler.closeDB();
 	}
 	
