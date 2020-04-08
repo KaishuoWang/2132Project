@@ -19,7 +19,6 @@ public class finishPaymentServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-<<<<<<< HEAD
 		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("id")))){
 			resp.sendRedirect("alreadyBooked.html");
 		}else {
