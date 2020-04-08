@@ -19,7 +19,7 @@ public class rateCheck extends HttpServlet{
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
 		resp.getWriter().write("Hello..");
-		req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
+		req.getRequestDispatcher("/rateProperty.jsp").forward(req, resp);
 		dbHandler.closeDB();
 	}
 	

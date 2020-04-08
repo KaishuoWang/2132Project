@@ -1,3 +1,6 @@
+<%@page import="classes.Property"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.DBHandler"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +12,10 @@
 <body>
 	<form action="finish" method="post">
 		<h1>almost there!</h1>
+		<%!DBHandler dbHandler = new DBHandler(); %>
 		<p>just need one more step!<p><br>
+		<p>paymentID:</p>
+		<%=request.getParameter("id") %><br>
 		paymentID: <input type="text" name="paymentID" id="paymentID"><br><br>
 		hostID: <input type="text" name="hostID" id="hostID"><br><br>
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>

@@ -41,27 +41,6 @@ public class finishPaymentServlet extends HttpServlet{
 				}
 			dbHandler.insertePayment(payment);
 		}
-=======
-		Payment payment = new Payment(Integer.parseInt(req.getParameter("paymentID")),Integer.parseInt(req.getParameter("hostID")),req.getParameter("paymentType"),Float.parseFloat(req.getParameter("amount")), req.getParameter("status"));
-		if(req.getParameter("paymentID").equals("")) {
-			payment.setPaymentID(0);
-		}
-		if(req.getParameter("hostID").equals("")) {
-			payment.setHostID(0);
-		}
-		if(req.getParameter("propertyID").equals("")) {
-			payment.setPaymentType("");
-		}
-		if(req.getParameter("amount").equals("")) {
-			payment.setAmount(0);
-		}
-		if(req.getParameter("status").equals("")) {
-			payment.setStatus(null);
-		}
-		dbHandler.insertePayment(payment);
-		req.getRequestDispatcher("/lastPage.jsp").forward(req, resp);
->>>>>>> 1dcdf7afd77cdb088e934b37030d487cbaf186b1
-		dbHandler.closeDB();
 	}
 	
 	@Override
