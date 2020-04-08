@@ -21,6 +21,7 @@
 		<%=result.get(i).getPrice() + " Street:" + result.get(i).getStreet() + ",  City:" + result.get(i).getCity() + ",  Province:" + result.get(i).getProvince() + ", Country:" + result.get(i).getCountry() + ", available date:" + result.get(i).getAvailableDate()%></h4><br>
 	<%} %><br>
 	PropertyID: <input type="text" name="id" id="id"><br>
+	Your ID: <input type="text" name="guestID" id="guestID"><br>
 	<button type="submit">book</button>
 	<button type="reset">Reset</button>
 	<p>Please remember the Property Id in order to book the Hotel.<p>
