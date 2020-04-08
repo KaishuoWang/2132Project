@@ -10,10 +10,6 @@
 	<form action="finish" method="post">
 		<h1>almost there!</h1>
 		<p>just need one more step!<p><br>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 8250433de226f660839079c18015d85d95c5a615
 		paymentID: <input type="text" name="paymentID" id="paymentID"><br><br>
 		hostID: <input type="text" name="hostID" id="hostID"><br><br>
 		propertyID: <input type="text" name="propertyID" id="propertyID"><br><br>
