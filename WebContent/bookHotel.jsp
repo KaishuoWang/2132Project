@@ -28,7 +28,7 @@
 <form action="submit" method="post">
 	<h1>This is the Hotel that you can book</h1>
 	<%!DBHandler dbHandler = new DBHandler();%>
-	<% ArrayList<Property> result = dbHandler.getAllProperty();%>
+	<%ArrayList<Property> result = dbHandler.getAllProperty();%>
 	<%for(int i = 0; i < result.size(); i++){%>
 		<h4>Property ID:
 		<%=result.get(i).getPropertyID()%><br>
