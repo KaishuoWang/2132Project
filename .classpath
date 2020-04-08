@@ -10,15 +10,10 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/Users/georgewang/eclipse-workspace/2132Project/WebContent/WEB-INF/lib/postgresql-42.2.12.jar"/>
 	<classpathentry kind="lib" path="/Users/georgewang/Tomcat/lib/postgresql-42.2.12.jar"/>
-	<classpathentry kind="lib" path="/Users/ralphhuo/Desktop/apache-tomcat-9.0.33/lib/postgresql-42.2.12.jar"/>
-	<classpathentry kind="lib" path="/Users/ralphhuo/Desktop/2132Project/WebContent/WEB-INF/lib/postgresql-42.2.12.jar"/>
-	<classpathentry kind="lib" path="WebContent/submitCheckBook.jsp"/>
-	<classpathentry kind="lib" path="WebContent/rate.jsp"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/ralphhuo/Desktop/2132Project/WebContent/WEB-INF/lib/javax.servlet-3.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
