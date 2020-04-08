@@ -15,12 +15,8 @@ public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
 		
-		
+		System.out.println(dbHandler.getPropertyStatement(123));
 		
 		dbHandler.closeDB();
-		
-		
-		
-		System.out.println(6/2);
 	}
 }

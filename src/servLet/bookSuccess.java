@@ -18,14 +18,14 @@ public class bookSuccess extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		if(dbHandler.getPropertyStatement(Integer.parseInt(req.getParameter("propertyID")))){
+		if(dbHandler.getPropertyStatement(Integer.parseInt(req.getParameter("id")))){
 			dbHandler.updateAvailable(Integer.parseInt(req.getParameter("propertyID")), false);
 			req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
-			}else {
-				resp.sendRedirect("alreadyBooked.html");
-				}
-		dbHandler.closeDB();
+		}else {
+			resp.sendRedirect("alreadyBooked.html");
 		}
+		dbHandler.closeDB();
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
