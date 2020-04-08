@@ -13,7 +13,6 @@
 			var Fname = document.getElementById("Fname");
 			var Lname = document.getElementById("Lname");
 			var password = document.getElementById("password");
-			var branch = document.getElementById("branch");
 			if (id.value == "") {
 				alert("Your id cannot be empty");
 				return false;
@@ -30,10 +29,6 @@
 				alert("Your password cannot be empty");
 				return false;
 			}
-			if (branch.value == "") {
-				alert("Your branch cannot be empty");
-				return false;
-			}
 			return true;
 		}
 	</script>
@@ -42,7 +37,7 @@
 		ID: <input type="text" name="id" id="id"><br><br>
 		First Name: <input type="text" name="Fname" id="Fname"><br><br>
 		Last Name: <input type="text" name="Lname" id="Lname"><br><br>
-		Password: <input type="password" name="password" id="password"><br><br>
+		Password: <input type="text" name="password" id="password"><br><br>
 		House Number: <input type="text" name="houseNum" id="houseNum"><br><br>
 		Street: <input type="text" name="street" id="street"><br><br>
 		City: <input type="text" name="city" id="city"><br><br>
