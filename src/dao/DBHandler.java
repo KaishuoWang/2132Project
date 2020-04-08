@@ -778,7 +778,7 @@ public class DBHandler {
 	}
 	public ArrayList<Property> getAllProperty() {
 		ArrayList<Property> result = new ArrayList<Property>();
-		try {
+		try { 
 			statement = db.createStatement();
 			sql = "select * from Project.property";
 			resultSet = statement.executeQuery(sql);
