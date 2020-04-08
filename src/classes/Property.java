@@ -19,6 +19,7 @@ public class Property {
 	private String amenities;
 	private String rules;
 	private boolean available;
+	private int guestID;
 	
 	public Property(int propertyID, int ownerID, int houseNum, String street, String city, String province, String country, String roomType, float price, String propertyClass, boolean available) {
 		this.setPropertyID(propertyID);
@@ -162,6 +163,14 @@ public class Property {
 	
 	public boolean getAvailable() {
 		return available;
+	}
+	
+	public int getGuestID() {
+		return guestID;
+	}
+	
+	public void setGuestID(int guestID) {
+		this.guestID = guestID;
 	}
 	
 }
