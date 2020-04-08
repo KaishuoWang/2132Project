@@ -43,9 +43,12 @@
 		First Name: <input type="text" name="Fname" id="Fname"><br><br>
 		Last Name: <input type="text" name="Lname" id="Lname"><br><br>
 		Password: <input type="password" name="password" id="password"><br><br>
-		Salary: <input type="text" name="salary" id="salary"><br><br>
-		Position: <input type="text" name="position" id="position"><br><br>
-		Branch ID: <input type="text" name="branch" id="branch"><br><br>
+		House Number: <input type="text" name="houseNum" id="houseNum"><br><br>
+		Street: <input type="text" name="street" id="street"><br><br>
+		City: <input type="text" name="city" id="city"><br><br>
+		Province: <input type="text" name="province" id="province"><br><br>
+		Email Address: <input type="text" name="email" id="email"><br><br>
+		Phone Number: <input type="text" name="phoneNum" id="phoneNum"><br><br>
 		<button type="submit" onclick="return validate();">Create</button>
 		<button type="reset">Reset</button>
 	</form>

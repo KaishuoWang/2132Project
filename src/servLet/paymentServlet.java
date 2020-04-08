@@ -20,7 +20,7 @@ public class paymentServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("id")))){
+		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("paymentID")))){
 			resp.sendRedirect("alreadyBooked.html");
 		}else {
 			resp.sendRedirect("payment.html");
@@ -49,7 +49,7 @@ public class paymentServlet extends HttpServlet{
 			dbHandler.inserteRA(rentalAgreement);
 		}
 		dbHandler.closeDB();
-		}
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
