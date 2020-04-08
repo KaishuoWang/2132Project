@@ -10,9 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBHandler;
 
+<<<<<<< HEAD:src/servLet/rateCheck.java
 @WebServlet(urlPatterns = "/review")
 public class rateCheck extends HttpServlet{
 
+=======
+@WebServlet(urlPatterns = "/rate")
+public class rateServlet extends HttpServlet{
+>>>>>>> parent of b84e9da... review:src/servLet/rateServlet.java
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
