@@ -18,8 +18,13 @@ public class bookSuccess extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
+<<<<<<< HEAD
 		if(dbHandler.getPropertyStatement(Integer.parseInt(req.getParameter("id")))){
 			dbHandler.updateAvailable(Integer.parseInt(req.getParameter("propertyID")), false);
+=======
+		if(dbHandler.getPropertyStatement(Integer.parseInt( req.getParameter("propertyID")))){
+			dbHandler.updateAvailable(Integer.parseInt( req.getParameter("propertyID")),false);
+>>>>>>> b2ff940dbbe099ae4a423dbc600e26d254b65842
 			req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
 		}else {
 			resp.sendRedirect("alreadyBooked.html");
