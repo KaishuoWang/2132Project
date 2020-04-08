@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DBHandler;
-@WebServlet(urlPatterns = "/book")
 
+@WebServlet(urlPatterns = "/book")
 public class bookServlet extends HttpServlet{
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -19,6 +20,7 @@ public class bookServlet extends HttpServlet{
 		resp.sendRedirect("bookHotel.jsp");
 		dbHandler.closeDB();
 	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
