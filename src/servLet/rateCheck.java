@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import dao.DBHandler;
 
 <<<<<<< HEAD:src/servLet/rateCheck.java
+<<<<<<< HEAD:src/servLet/rateCheck.java
 @WebServlet(urlPatterns = "/review")
 public class rateCheck extends HttpServlet{
 
 =======
+=======
+>>>>>>> parent of b84e9da... review:src/servLet/rateServlet.java
 @WebServlet(urlPatterns = "/rate")
 public class rateServlet extends HttpServlet{
 >>>>>>> parent of b84e9da... review:src/servLet/rateServlet.java
