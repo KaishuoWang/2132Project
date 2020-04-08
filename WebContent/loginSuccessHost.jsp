@@ -23,7 +23,7 @@
 			var availableDate = document.getElementById("availableDate").value;
 			var propertyType = document.getElementById("propertyType").value;
 			var radio = document.getElementsByName("class");
-			var Class;
+			var Class = "";
 			for (i=0; i<radio.length; i++) {
 				if (radio[i].checked) {
 					Class = radio[i].value;
@@ -71,7 +71,7 @@
 				alert("Your property type cannot be empty");
 				return false;
 			}
-			if (Class.value == "") {
+			if (Class == "") {
 				alert("Your class cannot be empty");
 				return false;
 			}
