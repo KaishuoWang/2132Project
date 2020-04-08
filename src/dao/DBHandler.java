@@ -713,6 +713,24 @@ public class DBHandler {
 		}
 	}
 	
+	public int getPropertyHostid(int ID) {
+		int result = 0;
+		try {
+			sql = "select ownerid from Project.property where propertyid = ?";
+			preparedStatement = db.prepareStatement(sql);
+			preparedStatement.setInt(1, ID);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				result = resultSet.getInt(1);
+			}
+			return result;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+	}
+	
 	public float getPropertyAmount(int ID) {
 		float result = 0;
 		try {

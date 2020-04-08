@@ -16,7 +16,7 @@ public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
 	
-		System.out.println(dbHandler.getPropertyAmount(123));
+		System.out.println(dbHandler.getPropertyHostid(123));
 		
 		dbHandler.closeDB();
 	}
