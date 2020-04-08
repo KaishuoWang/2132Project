@@ -16,6 +16,8 @@ public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
 	
+		System.out.println(dbHandler.findEmployee(345));
+		
 		dbHandler.closeDB();
 	}
 }

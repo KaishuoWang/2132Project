@@ -25,32 +25,21 @@ public class newEmployeeServlet extends HttpServlet{
 		String salary = req.getParameter("salary");
 		String position = req.getParameter("position");
 		String branch = req.getParameter("branch");
-		
-		if(branch != null) {
-			int branchID = Integer.parseInt(branch);
-			if(dbHandler.findBranch(branchID) == false || dbHandler.findEmployee(employeeID)) {
-				resp.sendRedirect("newPropertyFailed.html");
-			}else {
-				Employee employee = new Employee(employeeID, Fname, Lname, password);
-				employee.setBranchID(branchID);
-				employee.setPosition(position);
-				if(salary != null) {
-					float salaryF = Float.parseFloat(salary);
-					employee.setSalary(salaryF);
-				}
-			}
+		int branchID = Integer.parseInt(branch);
+		if(dbHandler.findBranch(branchID) == false || dbHandler.findEmployee(employeeID)) {
+			resp.sendRedirect("newEmployeeFailed.html");
 		}else {
-			if(dbHandler.findEmployee(employeeID)) {
-				resp.sendRedirect("newPropertyFailed.html");
-			}else {
-				Employee employee = new Employee(employeeID, Fname, Lname, password);
-				employee.setPosition(position);
-				if(salary != null) {
-					float salaryF = Float.parseFloat(salary);
-					employee.setSalary(salaryF);
-				}
+			Employee employee = new Employee(employeeID, Fname, Lname, password);
+			employee.setBranchID(branchID);
+			employee.setPosition(position);
+			if(!salary.equals("")) {
+				float salaryF = Float.parseFloat(salary);
+				employee.setSalary(salaryF);
 			}
+			dbHandler.inserteEmplloyee(employee);
+			resp.sendRedirect("newAccountSuccess.html");
 		}
+		
 		
 		dbHandler.closeDB();
 	}

@@ -13,8 +13,6 @@
 			var Fname = document.getElementById("Fname");
 			var Lname = document.getElementById("Lname");
 			var password = document.getElementById("password");
-			var salary = document.getElementById("salary");
-			var position = document.getElementById("position");
 			var branch = document.getElementById("branch");
 			if (id.value == "") {
 				alert("Your id cannot be empty");
@@ -30,6 +28,10 @@
 			}
 			if (password.value == "") {
 				alert("Your password cannot be empty");
+				return false;
+			}
+			if (branch.value == "") {
+				alert("Your branch cannot be empty");
 				return false;
 			}
 			return true;
