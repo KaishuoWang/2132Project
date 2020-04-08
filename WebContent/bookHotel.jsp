@@ -17,10 +17,10 @@
 	<%for(int i = 0; i < result.size(); i++){%>
 		<h4>Property ID:
 		<%=result.get(i).getPropertyID()%><br>
-		Hotel Address:
+		Hotel Price:
 		<%=result.get(i).getPrice() + " Street:" + result.get(i).getStreet() + ",  City:" + result.get(i).getCity() + ",  Province:" + result.get(i).getProvince() + ", Country:" + result.get(i).getCountry() + ", available date:" + result.get(i).getAvailableDate() %></h4><br>
 	<%} %><br>
-	Property ID: <input type="text" name="id" id="id"><br>
+	PropertyID: <input type="text" name="id" id="id"><br>
 	<button type="submit">submit</button>
 	<button type="reset">Reset</button>
 	<p>Please remember the Property Id in order to book the Hotel.<p>

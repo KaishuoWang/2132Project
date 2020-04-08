@@ -10,23 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBHandler;
 
-@WebServlet(urlPatterns = "/review")
-
-public class rateCheck extends HttpServlet{
-
+@WebServlet(urlPatterns = "/submit")
+public class bookCheck extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		resp.getWriter().write("Hello..");
-		req.getRequestDispatcher("/bookSuccess.jsp").forward(req, resp);
+		req.getRequestDispatcher("/bookCheck.jsp").forward(req, resp);
 		dbHandler.closeDB();
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO auto-generated method stub
+		// TODO Auto-generated method stub
 		super.doGet(req, resp);
 	}
-
 }
