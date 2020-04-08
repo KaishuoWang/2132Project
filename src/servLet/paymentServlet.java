@@ -20,30 +20,34 @@ public class paymentServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		rentalAgreement rentalAgreement = new rentalAgreement(Integer.parseInt(req.getParameter("paymentID")),Integer.parseInt(req.getParameter("hostID")),Integer.parseInt(req.getParameter("propertyID")),Integer.parseInt(req.getParameter("guestID")),Date.valueOf(req.getParameter("startDate")),Date.valueOf(req.getParameter("endDate")),req.getParameter("signing"));
-		if(!req.getParameter("paymentID").equals("")) {
-			rentalAgreement.setAgreementID(0);
+		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("id")))){
+			resp.sendRedirect("alreadyBooked.html");
+		}else {
+			resp.sendRedirect("payment.html");
+			rentalAgreement rentalAgreement = new rentalAgreement(Integer.parseInt(req.getParameter("paymentID")),Integer.parseInt(req.getParameter("hostID")),Integer.parseInt(req.getParameter("propertyID")),Integer.parseInt(req.getParameter("guestID")),Date.valueOf(req.getParameter("startDate")),Date.valueOf(req.getParameter("endDate")),req.getParameter("signing"));
+			if(!req.getParameter("paymentID").equals("")) {
+				rentalAgreement.setAgreementID(0);
+				}
+			if(!req.getParameter("hostID").equals("")) {
+				rentalAgreement.setHostID(0);
+				}
+			if(!req.getParameter("propertyID").equals("")) {
+				rentalAgreement.setPropertyID(0);
+				}
+			if(!req.getParameter("guestID").equals("")) {
+				rentalAgreement.setGuestID(0);
+				}
+			if(!req.getParameter("startDate").equals("")) {
+				rentalAgreement.setStartDate(null);
+				}
+			if(!req.getParameter("endDate").equals("")) {
+				rentalAgreement.setEndDate(null);
+				}
+			if(!req.getParameter("signing").equals("")) {
+				rentalAgreement.setSigning(null);
+				}
+			dbHandler.inserteRA(rentalAgreement);
 		}
-		if(!req.getParameter("hostID").equals("")) {
-			rentalAgreement.setHostID(0);
-		}
-		if(!req.getParameter("propertyID").equals("")) {
-			rentalAgreement.setPropertyID(0);
-		}
-		if(!req.getParameter("guestID").equals("")) {
-			rentalAgreement.setGuestID(0);
-		}
-		if(!req.getParameter("startDate").equals("")) {
-			rentalAgreement.setStartDate(null);
-		}
-		if(!req.getParameter("endDate").equals("")) {
-			rentalAgreement.setEndDate(null);
-		}
-		if(!req.getParameter("signing").equals("")) {
-			rentalAgreement.setSigning(null);
-		}
-		dbHandler.inserteRA(rentalAgreement);
-		req.getRequestDispatcher("/payment.jsp").forward(req, resp);
 		dbHandler.closeDB();
 		}
 	
