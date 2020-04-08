@@ -16,7 +16,7 @@ public class test {
 	public static void main(String[] args) {
 		DBHandler dbHandler = new DBHandler();
 	
-		System.out.println(dbHandler.findEmployee(345));
+		System.out.println(dbHandler.getPropertyAmount(123));
 		
 		dbHandler.closeDB();
 	}
