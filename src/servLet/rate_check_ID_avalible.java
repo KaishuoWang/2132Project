@@ -23,6 +23,9 @@ public class rate_check_ID_avalible extends HttpServlet{
 			resp.sendRedirect("failedRate.html");
 		}
 		Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
+		review.setRating(Integer.parseInt(req.getParameter("rate")));
+		review.setCleanliness(req.getParameter("cleanliness"));
+		review.setValue(req.getParameter("value"));
 		dbHandler.inserteReview(review);
 		dbHandler.closeDB();
 		resp.sendRedirect("success.html");
