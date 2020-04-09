@@ -27,8 +27,8 @@ public class rate_check_ID_avalible extends HttpServlet{
 		}
 		Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
 		dbHandler.inserteReview(review);
-		resp.sendRedirect("success.html");
 		dbHandler.closeDB();
+		resp.sendRedirect("success.html");
 		}
 	
 	@Override
