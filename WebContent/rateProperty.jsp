@@ -8,9 +8,11 @@
 </head>
 <body>
 	<form action="checkIDAva" method="post">
-		<p>Please enter your user Id and property ID</p>
+		<h1>Please enter your information thank you</h1>
 		Your ID: <input type="text" name="nameID" id="nameID"><br><br>
 		Property ID: <input type="text" name="propertyID" id="propertyID"><br><br>
+		Rate(1 to 10) :<input type="text" name="rate" id="rate"><br><br>
+		Common: <input type="text" name="communication" id="communication"><br><br>
 		<button type="submit">submit</button>
 		<button type="reset">Reset</button>
 	</form>
