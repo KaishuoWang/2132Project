@@ -41,7 +41,7 @@
 	<button type="submit" onclick="return validate();">book</button>
 	<button type="reset">Reset</button>
 	<p>Please remember the Property Id in order to book the Hotel.<p>
-	dbHandler.close();
+	<%dbHandler.closeDB(); %>
 </form>
 </body>
 </html>
