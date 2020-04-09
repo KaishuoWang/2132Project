@@ -25,6 +25,7 @@
 			return true;
 		}
 	</script>
+	
 <form action="submit" method="post">
 	<h1>This is the Hotel that you can book</h1>
 	<%!DBHandler dbHandler = new DBHandler();%>
