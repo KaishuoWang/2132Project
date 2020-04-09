@@ -22,7 +22,7 @@ public class rate_check_ID_avalible extends HttpServlet{
 		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("propertyID")))){
 			resp.sendRedirect("failedRate.html");
 		}
-		if(!dbHandler.findGuest(Integer.parseInt(req.getParameter("nameID")))) {
+		if(!dbHandler.findReview(Integer.parseInt(req.getParameter("reviewID")))) {
 			resp.sendRedirect("failedRate.html");
 		}
 		Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
