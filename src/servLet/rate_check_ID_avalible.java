@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import classes.Property;
+import classes.Review;
 import dao.DBHandler;
 
 @WebServlet(urlPatterns = "/checkIDAva")
@@ -23,9 +24,10 @@ public class rate_check_ID_avalible extends HttpServlet{
 		}
 		if(!dbHandler.findGuest(Integer.parseInt(req.getParameter("nameID")))) {
 			resp.sendRedirect("failedRate.html");
-		}else {
-			req.getRequestDispatcher("/rateMainScreen.jsp").forward(req, resp);
 		}
+		Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
+		dbHandler.inserteReview(review);
+		resp.sendRedirect("success.html");
 		dbHandler.closeDB();
 		}
 	
