@@ -19,23 +19,28 @@ public class rate_check_ID_avalible extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DBHandler dbHandler = new DBHandler();
-		if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("propertyID")))){
+		if(dbHandler.findReview(Integer.parseInt(req.getParameter("reviewID")))) {
 			resp.sendRedirect("failedRate.html");
+		}else {
+			if(!dbHandler.findProperty(Integer.parseInt(req.getParameter("propertyID")))){
+				resp.sendRedirect("failedRate.html");
+			}
+			Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
+			review.setRating(Integer.parseInt(req.getParameter("rate")));
+			if(!req.getParameter("cleanliness").equals("")) {
+				review.setCleanliness(req.getParameter("cleanliness"));
+			}
+			if(!req.getParameter("value").equals("")) {
+				review.setValue(req.getParameter("value"));
+			}
+			if(!req.getParameter("communication").equals("")) {
+				review.setCommunication(req.getParameter("communication"));
+			}
+			dbHandler.inserteReview(review);
+			dbHandler.closeDB();
+			resp.sendRedirect("success.html");
 		}
-<<<<<<< HEAD
-		if(!dbHandler.findReview(Integer.parseInt(req.getParameter("reviewID")))) {
-			resp.sendRedirect("failedRate.html");
-		}
-=======
->>>>>>> 36efc250cebb0cf22e7ade5d2dd9bd92f85e3696
-		Review review = new Review(Integer.parseInt(req.getParameter("reviewID")),Integer.parseInt(req.getParameter("propertyID")));
-		review.setRating(Integer.parseInt(req.getParameter("rate")));
-		review.setCleanliness(req.getParameter("cleanliness"));
-		review.setValue(req.getParameter("value"));
-		dbHandler.inserteReview(review);
-		dbHandler.closeDB();
-		resp.sendRedirect("success.html");
-		}
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
