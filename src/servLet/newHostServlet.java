@@ -31,7 +31,7 @@ public class newHostServlet extends HttpServlet{
 		String email = req.getParameter("email");
 		String phoneNum = req.getParameter("phoneNum");
 		if(dbHandler.findHost(hostID)) {
-			resp.sendRedirect("newEmployeeFailed.html");
+			resp.sendRedirect("newHostFailed.html");
 		}else {
 			Host host = new Host(Fname, Lname, hostID, password);
 			if(!houseNum.equals("")) {
